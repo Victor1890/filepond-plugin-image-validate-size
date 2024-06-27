@@ -20,16 +20,16 @@ const plugin = ({ addFilter, utils }) => {
 
             // validation result
             if (width < minWidth || height < minHeight) {
-                reject('TOO_SMALL');
+                return reject('TOO_SMALL');
             }
             else if (width > maxWidth || height > maxHeight) {
-                reject('TOO_BIG');
+                return reject('TOO_BIG');
             }
-            else if (minResolution !== null && resolution < minResolution) {
-                reject('TOO_LOW_RES');
+            else if (minResolution !== null && minResolution <= resolution) {
+                return reject('TOO_LOW_RES');
             }
-            else if (maxResolution !== null && resolution > maxResolution) {
-                reject('TOO_HIGH_RES');
+            else if (maxResolution !== null && maxResolution >= resolution) {
+                return reject('TOO_HIGH_RES');
             }
             
             // all is well
