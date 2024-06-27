@@ -23,7 +23,9 @@
         // Create the FilePond instance
         const pond = FilePond.create(inputElement, {
             imageValidateSizeMaxWidth: 500,
-            imageValidateSizeMaxHeight: 700
+            imageValidateSizeMaxHeight: 700,
+            imageValidateSizeMinResolution: 800,
+            imageValidateSizeMaxResolution: 1200
         });
     </script>
 
